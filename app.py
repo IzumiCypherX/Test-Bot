@@ -9,7 +9,7 @@ async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f'Hello {update.effective_user.first_name} and {os.environ.get("GREET")}')
 
 
-app = ApplicationBuilder().token("7088882913:AAHazPIPjVaZTmapVcwrztJP2kZAb3XwFWQ").build()
+app = ApplicationBuilder().token(os.environ.get("TOKEN")).build()
 app1 = Flask(__name__)
 
 app.add_handler(CommandHandler("hello", hello))
